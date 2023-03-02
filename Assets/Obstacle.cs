@@ -8,7 +8,6 @@ public class Obstacle : MonoBehaviour
     private int previousCoinCount = 0;  // the number of coins collected in the previous frame
     private PickUpCoin pickupCoinsScript;  // reference to the PickUpCoins script
     public LightController lightController;  // reference to the Lightcontroller script
-    private bool lightIsOffTriggered = false;  // flag to track if the lightIsOff variable was triggered
 
     void Start()
     {
@@ -17,6 +16,8 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(lightController.lightIsOff);
+
         if (lightController.lightIsOff == true)
         {
             int currentCoinCount = pickupCoinsScript.coins;  // get the current number of coins collected from the PickUpCoins script
