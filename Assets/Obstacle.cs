@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    public float movementSpeed = 1f;  // speed at which the object moves down
-    public LightController lightController;  // reference to the XRotationController script
+    public float speed = 1f;  // speed at which the plane moves down
+    private int previousCoinCount = 0;  // the number of coins collected in the previous frame
+    private PickUpCoin pickupCoinsScript;  // reference to the PickUpCoins script
+    public LightController lightController;  // reference to the Lightcontroller script
     private bool lightIsOffTriggered = false;  // flag to track if the lightIsOff variable was triggered
+
+    void Start()
+    {
+        pickupCoinsScript = FindObjectOfType<PickUpCoin>();  // find the PickUpCoins script in the scene
+    }
 
     void Update()
     {
-        if (lightController.lightIsOff)  // check if the lightIsOff variable in the XRotationController script is true
+        if (lightController.lightIsOff == true)
         {
-            if (!lightIsOffTriggered)  // check if lightIsOff was just triggered
+            int currentCoinCount = pickupCoinsScript.coins;  // get the current number of coins collected from the PickUpCoins script
+
+            if (currentCoinCount > previousCoinCount)
             {
-                lightIsOffTriggered = true;  // set the flag to true
-            }
-            else if (lightController.lightIsOff && lightController.lightIsOff != lightIsOffTriggered)  // check if lightIsOff was triggered and the flag has been set
-            {
-                transform.Translate(0f, -1f, 0f);  // move the object downwards by 1 unit
-                lightIsOffTriggered = lightController.lightIsOff;  // update the flag to match the lightIsOff variable
+                transform.position -= new Vector3(0f, speed, 0f);  // move the plane down by the speed amount
+                previousCoinCount = currentCoinCount;  // update the previous coin count to the current coin count
             }
         }
+        
     }
 }

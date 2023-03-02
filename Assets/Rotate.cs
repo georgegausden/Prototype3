@@ -27,13 +27,4 @@ public class Rotate : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.gameObject.CompareTag("Player"))
-        { 
-
-            this.GetComponent<AudioSource>().Play();
-
-        }
-    }
 }
