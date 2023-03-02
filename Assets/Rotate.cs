@@ -26,4 +26,14 @@ public class Rotate : MonoBehaviour
         this.GetComponent<Transform>().Rotate(0, 0, rotationSpeed);
 
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.CompareTag("Player"))
+        { 
+
+            this.GetComponent<AudioSource>().Play();
+
+        }
+    }
 }
