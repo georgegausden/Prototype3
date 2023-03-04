@@ -10,9 +10,12 @@ public class TimerController : MonoBehaviour
     public TMP_Text timerText; // Text component of the timer display object
     public Image timerImage; // Image component of the timer display object
     public TMP_Text gameOverText; // Text component for game over message
+    public TMP_Text coinText; // Text component for the coin count
+    public PickUpCoin pickUpCoin; // Reference to the PickUpCoin script
+
 
     private float currentTime; // Current time remaining
-    private bool isGameOver; // Flag to indicate if the game is over
+    public bool isGameOver; // Flag to indicate if the game is over
 
     void Start()
     {
@@ -38,6 +41,8 @@ public class TimerController : MonoBehaviour
         int seconds = Mathf.FloorToInt(currentTime % 60f);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
+        // Update the coin count text
+        coinText.text = "Coins: " + pickUpCoin.coins.ToString() + "/" + 10;
 
         // Set the position of the timer display in front of the player
         timerDisplay.position = Camera.main.transform.position + Camera.main.transform.forward * 5f;
@@ -50,6 +55,15 @@ public class TimerController : MonoBehaviour
             StartCoroutine(FlashTimer());
             gameOverText.gameObject.SetActive(true);
         }
+
+        if (pickUpCoin.coins >= 10 && !isGameOver)
+        {
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.Play();
+            StartCoroutine(FlashTimer());
+            gameOverText.gameObject.SetActive(true);
+        }
+
     }
 
     IEnumerator FlashTimer()
