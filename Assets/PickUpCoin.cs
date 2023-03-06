@@ -5,6 +5,7 @@ using UnityEngine;
 public class PickUpCoin : MonoBehaviour
 {
     public int coins = 0;
+    public int coinsToPickUp = 10;
     public GameObject particlePrefab;
 
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class PickUpCoin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
     }
 

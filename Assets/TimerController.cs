@@ -42,7 +42,7 @@ public class TimerController : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         // Update the coin count text
-        coinText.text = "Coins: " + pickUpCoin.coins.ToString() + "/" + 10;
+        coinText.text = "Coins: " + pickUpCoin.coins.ToString() + "/" + pickUpCoin.coinsToPickUp;
 
         // Set the position of the timer display in front of the player
         timerDisplay.position = Camera.main.transform.position + Camera.main.transform.forward * 5f;
@@ -56,7 +56,7 @@ public class TimerController : MonoBehaviour
             gameOverText.gameObject.SetActive(true);
         }
 
-        if (pickUpCoin.coins >= 10 && !isGameOver)
+        if (pickUpCoin.coins >= pickUpCoin.coinsToPickUp && !isGameOver)
         {
             AudioSource audioSource = GetComponent<AudioSource>();
             audioSource.Play();
