@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 8371616118181979820, guid: 2f358f89be1a2444087f7ad37b67a149,
     type: 3}
-  numCoinsToSpawn: 10
+  pickUpCoin: {fileID: 696061875}
   spawnRadius: 10
 --- !u!4 &9255829
 Transform:
@@ -5070,7 +5070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
-  coinsToPickUp: 10
+  coinsToPickUp: 30
   particlePrefab: {fileID: 212063312}
 --- !u!114 &696061882
 MonoBehaviour:
@@ -5084,7 +5084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e36b19d951e24dd9b8fe7836b84473a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 60
+  totalTime: 20
   timerDisplay: {fileID: 1770322878}
   timerText: {fileID: 1233456230}
   timerImage: {fileID: 0}
@@ -5883,6 +5883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7e1786ea32884730940669032fd0d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerController: {fileID: 0}
 --- !u!4 &1276331322
 Transform:
   m_ObjectHideFlags: 0

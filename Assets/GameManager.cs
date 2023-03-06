@@ -3,12 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private TimerController timerController;
-
-    private void Start()
-    {
-        timerController = FindObjectOfType<TimerController>();
-    }
+    public TimerController timerController; // Reference to the TimerController script
 
     private void Update()
     {
@@ -20,6 +15,9 @@ public class GameManager : MonoBehaviour
 
     private void RestartGame()
     {
+        // Reduce the total time by 10 units
+        timerController.totalTime -= 10f;
+        // Load the current scene to restart the game
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
