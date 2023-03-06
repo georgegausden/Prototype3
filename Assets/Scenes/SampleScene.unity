@@ -5070,6 +5070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+  coinsToPickUp: 10
   particlePrefab: {fileID: 212063312}
 --- !u!114 &696061882
 MonoBehaviour:
@@ -5206,6 +5207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spotlight: {fileID: 873454923}
+  increaseSpeed: 3
   decreaseSpeed: 5
 --- !u!1 &705507993
 GameObject:
@@ -5361,7 +5363,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 20
-  m_Range: 10
+  m_Range: 100
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
